@@ -77,7 +77,9 @@ def money(s):
 
 
 def from_page(kind, mlid):
-    _, page = http(page_url(kind, mlid), {"Accept": "text/html"})
+    final, page = http(page_url(kind, mlid), {"Accept": "text/html"})
+    t = re.search(r"<title>(.*?)</title>", page, re.S)
+    print(f"[debug] {mlid} -> {final[:90]} | {len(page)} bytes | título: {(t.group(1).strip()[:70] if t else '-')}")
     price = original = None
     m = re.search(r'<meta itemprop="price" content="([\d.]+)"', page)
     if m:
