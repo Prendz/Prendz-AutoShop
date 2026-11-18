@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-18T06:49:13Z",
+ "updated_at": "2026-11-18T07:16:59Z",
  "categories": [
   {
    "id": "som",
@@ -24,7 +24,9 @@
      "print_original": 49,
      "checked_at": "2026-11-18T07:13:00Z",
      "price_source": "print",
-     "print_event": null
+     "print_event": null,
+     "ml_id": "MLB7952636038",
+     "ml_kind": "item"
     },
     {
      "n": "Central multimídia 9\"",
@@ -81,7 +83,9 @@
      "print_price": 2691.89,
      "checked_at": "2026-11-18T07:13:00Z",
      "price_source": "print",
-     "print_event": null
+     "print_event": null,
+     "ml_id": "MLB6195062462",
+     "ml_kind": "item"
     },
     {
      "n": "Rodera · aro 17",
@@ -188,7 +192,9 @@
      "print_price": 40.29,
      "checked_at": "2026-11-18T07:13:00Z",
      "price_source": "print",
-     "print_event": null
+     "print_event": null,
+     "ml_id": "MLB4960561285",
+     "ml_kind": "item"
     },
     {
      "n": "Vonixx Blend 500 ml + flanela",
@@ -201,7 +207,9 @@
      "print_original": 81.7,
      "checked_at": "2026-11-18T07:13:00Z",
      "price_source": "print",
-     "print_event": null
+     "print_event": null,
+     "ml_id": "MLB7039318746",
+     "ml_kind": "item"
     },
     {
      "n": "Toalha de microfibra",
@@ -265,7 +273,9 @@
      "checked_at": "2026-11-18T07:13:00Z",
      "price_source": "print",
      "event": "Black Friday",
-     "print_event": "Black Friday"
+     "print_event": "Black Friday",
+     "ml_id": "MLB4514233797",
+     "ml_kind": "item"
     },
     {
      "n": "Macaco jacaré 2 t",
