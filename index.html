@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prendz Auto Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: loja de vitrine — nav fixa, hero com seletor de carro, trilho de categorias, prateleiras por categoria. */
+:root{
+  --bg:#ffffff;
+  --surface:#f4f5f7;
+  --ink:#121417;
+  --muted:#6b7079;
+  --line:#e3e5e9;
+  --accent:#1f5eff;
+  --accent-ink:#ffffff;
+  --display:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --body:"Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r-lg:22px; --r-md:14px; --r-sm:10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b0c0e; --surface:#16181c; --ink:#f2f3f5; --muted:#9aa0aa; --line:#25282e;
+    --accent:#5b8cff; --accent-ink:#0b0c0e; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b0c0e; --surface:#16181c; --ink:#f2f3f5; --muted:#9aa0aa; --line:#25282e;
+  --accent:#5b8cff; --accent-ink:#0b0c0e; color-scheme: dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-0.02em}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:56px}
+.logo{font-weight:800;font-size:20px;letter-spacing:-0.03em;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo span{font-weight:500;color:var(--muted);font-size:15px;letter-spacing:0}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted);overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav ul a{white-space:nowrap}
+.nav ul a:hover{color:var(--ink)}
+.nav .spacer{flex:1}
+.pill-btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;white-space:nowrap}
+@media (max-width:820px){.nav ul{display:none}}
+
+/* Hero */
+.hero{padding:72px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.eyebrow{font-size:15px;font-weight:600;color:var(--accent);margin-bottom:12px}
+.hero h1{font-size:clamp(40px,6vw,72px);line-height:1.02;font-weight:800}
+.hero p.lead{font-size:clamp(18px,2vw,22px);color:var(--muted);max-width:30ch;margin:18px 0 28px}
+.wheel-art{width:100%;max-width:420px;justify-self:center;color:var(--ink)}
+.wheel-art .spin{transform-origin:200px 200px;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.wheel-art{max-width:260px;order:-1}}
+
+/* Car selector */
+.carbox{background:var(--surface);border-radius:var(--r-lg);padding:18px;display:grid;gap:12px;max-width:560px}
+.carbox h2{font-size:17px;font-weight:700;letter-spacing:-0.01em}
+.carbox .row{display:grid;grid-template-columns:1fr 1fr .7fr auto;gap:10px}
+.carbox label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.carbox select{appearance:none;-webkit-appearance:none;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 12px;min-width:0;cursor:pointer}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:999px;padding:11px 20px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.carbox .status{font-size:14px;color:var(--muted);margin:0}
+.carbox .status b{color:var(--ink)}
+@media (max-width:560px){.carbox .row{grid-template-columns:1fr 1fr}.carbox .btn{grid-column:1/-1}}
+
+/* Category rail */
+.rail{padding:8px 0 40px}
+.rail .wrap{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.cat{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 8px;border-radius:var(--r-md);text-align:center;font-size:14px;font-weight:600;transition:background .2s}
+.cat:hover{background:var(--surface)}
+.cat svg{width:44px;height:44px}
+.cat small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+@media (max-width:820px){.rail .wrap{grid-template-columns:repeat(3,1fr)}}
+
+/* Sections */
+section.shelf{padding:56px 0;border-top:1px solid var(--line)}
+.shelf-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap}
+.shelf-head h2{font-size:clamp(28px,3.4vw,40px);font-weight:800}
+.shelf-head h2 em{font-style:normal;color:var(--muted)}
+.shelf-head p{color:var(--muted);margin:6px 0 0;max-width:56ch}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--muted);background:var(--bg);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--surface);border-radius:var(--r-lg);padding:18px;display:flex;flex-direction:column;gap:14px;min-height:100%}
+.card .art{background:var(--bg);border-radius:var(--r-md);aspect-ratio:4/3;display:grid;place-items:center;color:var(--ink);position:relative}
+.card .art svg{width:38%;height:auto;opacity:.9}
+.tag{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;letter-spacing:.02em;padding:4px 8px;border-radius:6px;background:var(--surface);color:var(--muted)}
+.tag.hot{background:var(--accent);color:var(--accent-ink)}
+.card h3{font-size:18px;font-weight:700;letter-spacing:-0.01em;line-height:1.25}
+.card .spec{font-size:14px;color:var(--muted);margin:4px 0 0}
+.card .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:4px}
+.price{font-size:14px;color:var(--muted)}
+.price b{display:block;color:var(--ink);font-size:16px;font-variant-numeric:tabular-nums}
+.deal{display:grid;gap:2px;font-variant-numeric:tabular-nums}
+.deal .was{font-size:13px;color:var(--muted);text-decoration:line-through}
+.deal .now{font-size:24px;font-weight:800;letter-spacing:-0.02em}
+.deal .pay{font-size:13px;color:var(--muted)}
+.deal .seen{font-size:12px;color:var(--muted);margin-top:4px}
+.btn.buy{display:block;width:100%;text-align:center;font-size:15px}
+.ghost{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--muted);cursor:not-allowed;white-space:nowrap}
+
+/* Tire tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.tier{border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
+.tier h3{font-size:17px;margin-bottom:6px}
+.tier p{margin:0;font-size:14px;color:var(--muted)}
+.tier .lvl{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:8px;display:block}
+@media (max-width:820px){.tiers{grid-template-columns:1fr}}
+
+/* Why */
+.why .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.why .item{background:var(--surface);border-radius:var(--r-lg);padding:28px}
+.why h3{font-size:22px;margin:0 0 8px}
+.why p{margin:0;color:var(--muted);font-size:15px}
+.why .num{font-size:44px;font-weight:800;letter-spacing:-0.04em;line-height:1;margin-bottom:14px;font-variant-numeric:tabular-nums}
+@media (max-width:820px){.why .wrap{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:13px}
+footer .wrap{display:grid;gap:10px}
+footer b{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-som" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="5" width="28" height="38" rx="5"/><circle cx="24" cy="29" r="8"/><circle cx="24" cy="29" r="2.5"/><circle cx="24" cy="13.5" r="3"/></g></symbol>
+    <symbol id="i-roda" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="24" cy="24" r="19"/><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="4"/><path d="M24 20V9M27.8 22.8l10.5-3.4M26.3 27.2l6.5 8.9M21.7 27.2l-6.5 8.9M20.2 22.8 9.7 19.4"/></g></symbol>
+    <symbol id="i-pneu" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="24" cy="24" r="19"/><circle cx="24" cy="24" r="10"/><path d="M24 5v4M24 39v4M5 24h4M39 24h4M10.6 10.6l2.8 2.8M34.6 34.6l2.8 2.8M37.4 10.6l-2.8 2.8M13.4 34.6l-2.8 2.8"/></g></symbol>
+    <symbol id="i-care" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18h14l2 6v17a3 3 0 0 1-3 3H18a3 3 0 0 1-3-3V24z"/><path d="M20 18v-5h8v5M28 13h7l3 3M38 8l2-2M40 12h3M38 16l2 2"/><path d="M15 30h18"/></g></symbol>
+    <symbol id="i-tool" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M29.4 12.6a8 8 0 0 0-10.8 10.8L6 36l6 6 12.6-12.6a8 8 0 0 0 10.8-10.8l-5 5-4.8-1.2-1.2-4.8z"/></g></symbol>
+    <symbol id="i-acc" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 30a11 11 0 1 1 14 0c-1.6 1.3-2.5 3-2.5 5h-9c0-2-.9-3.7-2.5-5z"/><path d="M19.5 39h9M21 43h6"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#topo" class="logo"><i></i>Prendz <span>Auto Shop</span></a>
+    <ul>
+      <li><a href="#som">Som e multimídia</a></li>
+      <li><a href="#rodas">Rodas</a></li>
+      <li><a href="#pneus">Pneus</a></li>
+      <li><a href="#carcare">Car care</a></li>
+      <li><a href="#ferramentas">Ferramentas</a></li>
+      <li><a href="#acessorios">Acessórios</a></li>
+    </ul>
+    <span class="spacer"></span>
+    <button class="pill-btn" type="button" id="myCarBtn">Meu carro</button>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Curadoria automotiva</div>
+        <h1>Tudo pro seu carro. Escolhido a dedo.</h1>
+        <p class="lead">Só produtos que valem a pena, com a melhor oferta do dia já encontrada pra você.</p>
+
+        <form class="carbox" id="carForm">
+          <h2>Qual é o seu carro?</h2>
+          <div class="row">
+            <label for="marca">Marca</label>
+            <select id="marca">
+              <option>Chevrolet</option><option>Volkswagen</option><option>Hyundai</option><option>Toyota</option><option>Honda</option><option>Renault</option><option>Nissan</option><option>Fiat</option><option>Jeep</option>
+            </select>
+            <label for="modelo">Modelo</label>
+            <select id="modelo"></select>
+            <label for="ano">Ano</label>
+            <select id="ano"></select>
+            <button class="btn" type="submit">Ver compatíveis</button>
+          </div>
+          <p class="status" id="carStatus">Escolha o modelo e o ano para ver rodas, pneus e acessórios que servem no seu carro.</p>
+        </form>
+      </div>
+
+      <svg class="wheel-art" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="190" fill="var(--surface)"/>
+        <circle cx="200" cy="200" r="168" fill="none" stroke="currentColor" stroke-width="22" opacity=".92"/>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <g class="spin" fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="200" cy="200" r="126" stroke-width="3"/>
+          <g stroke-width="14">
+            <path d="M200 160 V82"/><path d="M238 188 L312 164"/><path d="M224 232 L270 296"/><path d="M176 232 L130 296"/><path d="M162 188 L88 164"/>
+          </g>
+          <circle cx="200" cy="200" r="34" stroke-width="6"/>
+          <circle cx="200" cy="200" r="8" fill="var(--accent)" stroke="none"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <nav class="rail" aria-label="Categorias">
+    <div class="wrap">
+      <a class="cat" href="#som"><svg><use href="#i-som"/></svg>Som<small>e multimídia</small></a>
+      <a class="cat" href="#rodas"><svg><use href="#i-roda"/></svg>Rodas<small>aro 15 a 20</small></a>
+      <a class="cat" href="#pneus"><svg><use href="#i-pneu"/></svg>Pneus<small>aro 15+</small></a>
+      <a class="cat" href="#carcare"><svg><use href="#i-care"/></svg>Car care<small>lavar e proteger</small></a>
+      <a class="cat" href="#ferramentas"><svg><use href="#i-tool"/></svg>Ferramentas<small>pra garagem</small></a>
+      <a class="cat" href="#acessorios"><svg><use href="#i-acc"/></svg>Acessórios<small>do dia a dia</small></a>
+    </div>
+  </nav>
+
+  <div id="shelves"></div>
+
+  <section class="shelf why">
+    <div class="wrap">
+      <div class="item"><div class="num">01</div><h3>Curadoria</h3><p>Cada item passa por um filtro: marca confiável, boa avaliação e preço justo. O resto fica de fora.</p></div>
+      <div class="item"><div class="num">02</div><h3>Melhor oferta do dia</h3><p>Comparamos os anúncios todos os dias e apontamos a loja com o melhor preço naquele momento.</p></div>
+      <div class="item"><div class="num">03</div><h3>Serve no seu carro</h3><p>Rodas, pneus e acessórios organizados por modelo, com medida e furação, pra você comprar sem dúvida.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Prendz Auto Shop</b> · versão de pré-lançamento. Os preços são atualizados automaticamente e podem mudar a qualquer momento no Mercado Livre.</div>
+    <div>A Prendz é um site de curadoria. As compras são feitas no Mercado Livre, direto com o vendedor, e a Prendz pode receber comissão pelas indicações, sem custo extra pra você.</div>
+  </div>
+</footer>
+
+<script>
+const TIERS = `<div class="tiers">
+  <div class="tier"><span class="lvl">Uso diário</span><h3>Premium</h3><p>Marcas de primeira linha. A escolha certa pra quem roda muito ou viaja.</p></div>
+  <div class="tier"><span class="lvl">Uso diário</span><h3>Custo-benefício</h3><p>Só importados com boa reputação: Linglong e XBRI. Nada além disso.</p></div>
+  <div class="tier"><span class="lvl">Track day</span><h3>Pista</h3><p>Semi-slick pra autódromo. Não indicado pra rua na chuva.</p></div>
+</div>`;
+
+
+const FRESH_HOURS = 6;
+const brl = v => v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+function ago(iso){
+  const m = Math.max(1, Math.round((Date.now()-new Date(iso).getTime())/60000));
+  if(m<60) return `há ${m} min`;
+  const h = Math.round(m/60); if(h<48) return `há ${h} h`;
+  return `há ${Math.round(h/24)} dias`;
+}
+function card(it, icon){
+  const fresh = it.price && it.checked_at && (Date.now()-new Date(it.checked_at).getTime()) < FRESH_HOURS*3600e3;
+  const drop = fresh && it.original_price && it.original_price > it.price ? Math.round((1-it.price/it.original_price)*100) : 0;
+  const tag = it.badge ? it.badge : (drop>=10 ? `${drop}% OFF` : "");
+  let body;
+  if(it.url && fresh){
+    body = `<div class="deal">${drop?`<span class="was">${brl(it.original_price)}</span>`:""}<span class="now">${brl(it.price)}</span><span class="pay">${it.price_note||""}</span><span class="seen">Preço atualizado ${ago(it.checked_at)}</span></div>
+    <div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver oferta no Mercado Livre</a></div>`;
+  } else if(it.url){
+    body = `<div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver preço no Mercado Livre</a></div>`;
+  } else {
+    body = `<div class="foot"><div class="price">Melhor oferta<b>Em breve</b></div><button class="ghost" type="button" disabled>Ver oferta</button></div>`;
+  }
+  return `<article class="card" data-f="${it.f}">
+    <div class="art">${tag?`<span class="tag hot">${tag}</span>`:""}<svg aria-hidden="true"><use href="#${icon}"/></svg></div>
+    <div><h3>${it.n}</h3><p class="spec">${it.s}</p></div>
+    ${body}
+  </article>`;
+}
+function render(CATS){
+  document.getElementById("shelves").innerHTML = CATS.map(c => `
+  <section class="shelf" id="${c.id}">
+    <div class="wrap">
+      <div class="shelf-head">
+        <div><h2>${c.title}.</h2><p>${c.sub}</p></div>
+        <div class="chips" role="group" aria-label="Filtrar ${c.title}">
+          ${c.filters.map((f,i)=>`<button type="button" class="chip" aria-pressed="${i===0}" data-filter="${i===0?"*":f}">${f}</button>`).join("")}
+        </div>
+      </div>
+      ${c.tiers ? TIERS : ""}
+      <div class="grid">${c.items.map(it=>card(it,c.icon)).join("")}</div>
+    </div>
+  </section>`).join("");
+  document.querySelectorAll(".shelf .chips").forEach(group=>{
+    group.addEventListener("click", e=>{
+      const b = e.target.closest(".chip"); if(!b) return;
+      group.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed", x===b));
+      const f = b.dataset.filter;
+      group.closest(".shelf").querySelectorAll(".card").forEach(cd=>{
+        cd.style.display = (f==="*" || cd.dataset.f===f) ? "" : "none";
+      });
+    });
+  });
+}
+fetch("data/products.json", {cache:"no-store"}).then(r=>r.json()).then(d=>render(d.categories))
+  .catch(()=>{ document.getElementById("shelves").innerHTML = '<section class="shelf"><div class="wrap"><p>Não foi possível carregar o catálogo agora. Recarregue a página.</p></div></section>'; });
+
+const MODELS = {
+  Chevrolet:["Onix","Onix Plus","Tracker","Spin","S10"],
+  Volkswagen:["Polo","Virtus","T-Cross","Nivus","Gol","Saveiro"],
+  Hyundai:["HB20","HB20S","Creta"],
+  Toyota:["Corolla","Corolla Cross","Yaris","Hilux"],
+  Honda:["City","Civic","HR-V","WR-V"],
+  Renault:["Kwid","Sandero","Duster","Kardian"],
+  Nissan:["Versa","Kicks","Frontier"],
+  Fiat:["Argo","Mobi","Cronos","Pulse","Strada","Toro"],
+  Jeep:["Renegade","Compass","Commander"]
+};
+const marca = document.getElementById("marca"), modelo = document.getElementById("modelo"), ano = document.getElementById("ano");
+function fillModels(){ modelo.innerHTML = MODELS[marca.value].map(m=>`<option>${m}</option>`).join(""); }
+marca.addEventListener("change", fillModels); fillModels();
+for(let y=2026; y>=2010; y--) ano.insertAdjacentHTML("beforeend", `<option>${y}</option>`);
+ano.value = "2022";
+
+let saved = null;
+try { saved = JSON.parse(localStorage.getItem("prendz-car")); } catch(e) {}
+const status = document.getElementById("carStatus"), myCar = document.getElementById("myCarBtn");
+function showCar(c){
+  status.innerHTML = `Mostrando itens para <b>${c.marca} ${c.modelo} ${c.ano}</b>. A compatibilidade por modelo entra no ar com o catálogo completo.`;
+  myCar.textContent = `${c.modelo} ${c.ano}`;
+}
+if(saved && MODELS[saved.marca]){ marca.value = saved.marca; fillModels(); modelo.value = saved.modelo; ano.value = saved.ano; showCar(saved); }
+document.getElementById("carForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const c = {marca:marca.value, modelo:modelo.value, ano:ano.value};
+  try { localStorage.setItem("prendz-car", JSON.stringify(c)); } catch(err) {}
+  showCar(c);
+});
+myCar.addEventListener("click", ()=>{ document.getElementById("topo").scrollIntoView(); marca.focus(); });
+</script>
+</body>
+</html>
