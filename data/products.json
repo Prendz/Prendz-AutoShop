@@ -1,66 +1,273 @@
 {
-  "updated_at": null,
-  "categories": [
-    {"id": "som", "icon": "i-som", "title": "Som e multimídia", "sub": "Central, câmera, sensor e o som que o carro merece.",
-     "filters": ["Todos", "Multimídia", "Segurança", "Som"],
-     "items": [
-      {"n": "Central multimídia 9\"", "s": "Android Auto e CarPlay sem fio, tela IPS", "f": "Multimídia"},
-      {"n": "Câmera de ré HD", "s": "Visão noturna, linhas de guia, à prova d'água", "f": "Segurança"},
-      {"n": "Sensor de estacionamento", "s": "4 pontos, aviso sonoro e display", "f": "Segurança"},
-      {"n": "Subwoofer 12\"", "s": "Caixa selada, ideal pra porta-malas", "f": "Som"},
-      {"n": "Kit 2 vias 6\"", "s": "Woofer e tweeter separados, crossover passivo", "f": "Som"},
-      {"n": "Alto-falante 4 vias 6x9\"", "s": "Quadriaxial pra tampão traseiro", "f": "Som"},
-      {"n": "Módulo amplificador 4 canais", "s": "Classe D, pra 2 Ω", "f": "Som"}
-     ]},
-    {"id": "rodas", "icon": "i-roda", "title": "Rodas", "sub": "Jogos completos das marcas que mais entregam acabamento e encaixe.",
-     "filters": ["Todas", "Rodera", "Zunky", "Raw"],
-     "items": [
-      {"n": "Rodera · aro 17", "s": "Jogo com 4, grafite diamantado", "f": "Rodera"},
-      {"n": "Rodera · aro 15", "s": "Jogo com 4, preta fosca", "f": "Rodera"},
-      {"n": "Zunky · aro 15", "s": "Jogo com 4, preta brilhante", "f": "Zunky"},
-      {"n": "Zunky · aro 17", "s": "Jogo com 4, prata", "f": "Zunky"},
-      {"n": "Raw · aro 18", "s": "Jogo com 4, bronze, linha esportiva", "f": "Raw"},
-      {"n": "Raw · aro 20", "s": "Jogo com 4, black piano, pra SUV", "f": "Raw"}
-     ]},
-    {"id": "pneus", "icon": "i-pneu", "title": "Pneus", "sub": "Do aro 15 pra cima. Pneu é segurança, por isso a lista é curta.",
-     "tiers": true, "filters": ["Todos", "Premium", "Custo-benefício", "Pista"],
-     "items": [
-      {"n": "Pirelli Scorpion · 225/55 R18 98V", "s": "Kit com 2 pneus. Nota 4,9, mais de 5 mil vendidos", "f": "Premium",
-       "url": "https://meli.la/2tyn7iX", "ml_id": null,
-       "price": 1467.24, "original_price": 2500, "price_note": "no Pix", "checked_at": "2026-11-18T06:17:00Z", "price_source": "print"},
-      {"n": "Pneu premium · aro 15", "s": "Michelin, Pirelli ou Continental", "f": "Premium"},
-      {"n": "Linglong · aro 16", "s": "Importado de boa reputação, uso diário", "f": "Custo-benefício"},
-      {"n": "XBRI · aro 17", "s": "Importado, bom equilíbrio preço x rodagem", "f": "Custo-benefício"},
-      {"n": "Semi-slick · aro 15", "s": "Composto macio, só pra track day", "f": "Pista"}
-     ]},
-    {"id": "carcare", "icon": "i-care", "title": "Car care", "sub": "Lavar, polir e proteger, do kit iniciante ao equipamento de quem leva a sério.",
-     "filters": ["Todos", "Lavagem", "Proteção", "Equipamento"],
-     "items": [
-      {"n": "Shampoo automotivo", "s": "pH neutro, não remove cera", "f": "Lavagem"},
-      {"n": "Toalha de microfibra", "s": "600 GSM, secagem sem marcas", "f": "Lavagem"},
-      {"n": "Lavadora de alta pressão", "s": "Com aplicador de espuma", "f": "Equipamento"},
-      {"n": "Cera de carnaúba", "s": "Brilho profundo e proteção", "f": "Proteção"},
-      {"n": "Cristalizador de vidros", "s": "Repele água, melhora a visão na chuva", "f": "Proteção"},
-      {"n": "Revitalizador de plásticos", "s": "Recupera o preto de para-choques e frisos", "f": "Proteção"},
-      {"n": "Politriz roto-orbital", "s": "Velocidade variável, segura pra iniciante", "f": "Equipamento"},
-      {"n": "Kit de boinas", "s": "Corte, refino e lustro", "f": "Equipamento"}
-     ]},
-    {"id": "ferramentas", "icon": "i-tool", "title": "Ferramentas", "sub": "O básico bem feito pra resolver na garagem de casa.",
-     "filters": ["Todas", "Elevação", "Manuais", "Elétricas"],
-     "items": [
-      {"n": "Macaco jacaré 2 t", "s": "Hidráulico, perfil baixo", "f": "Elevação"},
-      {"n": "Cavaletes 3 t", "s": "Par, com trava de segurança", "f": "Elevação"},
-      {"n": "Chave catraca com soquetes", "s": "Jogo 1/2\" e 1/4\", maleta", "f": "Manuais"},
-      {"n": "Jogo de chaves de boca", "s": "8 a 22 mm, cromo-vanádio", "f": "Manuais"},
-      {"n": "Saca-presilhas de forro", "s": "Kit em nylon, não risca o acabamento", "f": "Manuais"},
-      {"n": "Parafusadeira 12 V", "s": "Duas baterias, torque ajustável", "f": "Elétricas"}
-     ]},
-    {"id": "acessorios", "icon": "i-acc", "title": "Acessórios", "sub": "Pequenas coisas que mudam o dia a dia no carro.",
-     "filters": ["Todos", "Iluminação", "Interior", "Energia"],
-     "items": [
-      {"n": "Lâmpadas", "s": "Farol, milha e iluminação interna", "f": "Iluminação"},
-      {"n": "Tapete sob medida", "s": "Feito pro seu modelo, borracha ou carpete", "f": "Interior"},
-      {"n": "Carregador veicular USB-C", "s": "Carga rápida PD, duas portas", "f": "Energia"}
-     ]}
-  ]
+ "updated_at": "2026-11-18T06:49:13Z",
+ "categories": [
+  {
+   "id": "som",
+   "icon": "i-som",
+   "title": "Som e multimídia",
+   "sub": "Central, câmera, sensor e o som que o carro merece.",
+   "filters": [
+    "Todos",
+    "Multimídia",
+    "Segurança",
+    "Som"
+   ],
+   "items": [
+    {
+     "n": "Central multimídia 9\"",
+     "s": "Android Auto e CarPlay sem fio, tela IPS",
+     "f": "Multimídia"
+    },
+    {
+     "n": "Câmera de ré HD",
+     "s": "Visão noturna, linhas de guia, à prova d'água",
+     "f": "Segurança"
+    },
+    {
+     "n": "Sensor de estacionamento",
+     "s": "4 pontos, aviso sonoro e display",
+     "f": "Segurança"
+    },
+    {
+     "n": "Subwoofer 12\"",
+     "s": "Caixa selada, ideal pra porta-malas",
+     "f": "Som"
+    },
+    {
+     "n": "Kit 2 vias 6\"",
+     "s": "Woofer e tweeter separados, crossover passivo",
+     "f": "Som"
+    },
+    {
+     "n": "Alto-falante 4 vias 6x9\"",
+     "s": "Quadriaxial pra tampão traseiro",
+     "f": "Som"
+    },
+    {
+     "n": "Módulo amplificador 4 canais",
+     "s": "Classe D, pra 2 Ω",
+     "f": "Som"
+    }
+   ]
+  },
+  {
+   "id": "rodas",
+   "icon": "i-roda",
+   "title": "Rodas",
+   "sub": "Jogos completos das marcas que mais entregam acabamento e encaixe.",
+   "filters": [
+    "Todas",
+    "Rodera",
+    "Zunky",
+    "Raw"
+   ],
+   "items": [
+    {
+     "n": "Rodera · aro 17",
+     "s": "Jogo com 4, grafite diamantado",
+     "f": "Rodera"
+    },
+    {
+     "n": "Rodera · aro 15",
+     "s": "Jogo com 4, preta fosca",
+     "f": "Rodera"
+    },
+    {
+     "n": "Zunky · aro 15",
+     "s": "Jogo com 4, preta brilhante",
+     "f": "Zunky"
+    },
+    {
+     "n": "Zunky · aro 17",
+     "s": "Jogo com 4, prata",
+     "f": "Zunky"
+    },
+    {
+     "n": "Raw · aro 18",
+     "s": "Jogo com 4, bronze, linha esportiva",
+     "f": "Raw"
+    },
+    {
+     "n": "Raw · aro 20",
+     "s": "Jogo com 4, black piano, pra SUV",
+     "f": "Raw"
+    }
+   ]
+  },
+  {
+   "id": "pneus",
+   "icon": "i-pneu",
+   "title": "Pneus",
+   "sub": "Do aro 15 pra cima. Pneu é segurança, por isso a lista é curta.",
+   "tiers": true,
+   "filters": [
+    "Todos",
+    "Premium",
+    "Custo-benefício",
+    "Pista"
+   ],
+   "items": [
+    {
+     "n": "Pirelli Scorpion · 225/55 R18 98V",
+     "s": "Kit com 2 pneus. Nota 4,9, mais de 5 mil vendidos",
+     "f": "Premium",
+     "url": "https://meli.la/2tyn7iX",
+     "ml_id": "MLB35060373",
+     "price": 1467.24,
+     "original_price": 2500,
+     "price_note": "no Pix",
+     "checked_at": "2026-11-18T06:17:00Z",
+     "price_source": "print",
+     "ml_kind": "product"
+    },
+    {
+     "n": "Pneu premium · aro 15",
+     "s": "Michelin, Pirelli ou Continental",
+     "f": "Premium"
+    },
+    {
+     "n": "Linglong · aro 16",
+     "s": "Importado de boa reputação, uso diário",
+     "f": "Custo-benefício"
+    },
+    {
+     "n": "XBRI · aro 17",
+     "s": "Importado, bom equilíbrio preço x rodagem",
+     "f": "Custo-benefício"
+    },
+    {
+     "n": "Semi-slick · aro 15",
+     "s": "Composto macio, só pra track day",
+     "f": "Pista"
+    }
+   ]
+  },
+  {
+   "id": "carcare",
+   "icon": "i-care",
+   "title": "Car care",
+   "sub": "Lavar, polir e proteger, do kit iniciante ao equipamento de quem leva a sério.",
+   "filters": [
+    "Todos",
+    "Lavagem",
+    "Proteção",
+    "Equipamento"
+   ],
+   "items": [
+    {
+     "n": "Shampoo automotivo",
+     "s": "pH neutro, não remove cera",
+     "f": "Lavagem"
+    },
+    {
+     "n": "Toalha de microfibra",
+     "s": "600 GSM, secagem sem marcas",
+     "f": "Lavagem"
+    },
+    {
+     "n": "Lavadora de alta pressão",
+     "s": "Com aplicador de espuma",
+     "f": "Equipamento"
+    },
+    {
+     "n": "Cera de carnaúba",
+     "s": "Brilho profundo e proteção",
+     "f": "Proteção"
+    },
+    {
+     "n": "Cristalizador de vidros",
+     "s": "Repele água, melhora a visão na chuva",
+     "f": "Proteção"
+    },
+    {
+     "n": "Revitalizador de plásticos",
+     "s": "Recupera o preto de para-choques e frisos",
+     "f": "Proteção"
+    },
+    {
+     "n": "Politriz roto-orbital",
+     "s": "Velocidade variável, segura pra iniciante",
+     "f": "Equipamento"
+    },
+    {
+     "n": "Kit de boinas",
+     "s": "Corte, refino e lustro",
+     "f": "Equipamento"
+    }
+   ]
+  },
+  {
+   "id": "ferramentas",
+   "icon": "i-tool",
+   "title": "Ferramentas",
+   "sub": "O básico bem feito pra resolver na garagem de casa.",
+   "filters": [
+    "Todas",
+    "Elevação",
+    "Manuais",
+    "Elétricas"
+   ],
+   "items": [
+    {
+     "n": "Macaco jacaré 2 t",
+     "s": "Hidráulico, perfil baixo",
+     "f": "Elevação"
+    },
+    {
+     "n": "Cavaletes 3 t",
+     "s": "Par, com trava de segurança",
+     "f": "Elevação"
+    },
+    {
+     "n": "Chave catraca com soquetes",
+     "s": "Jogo 1/2\" e 1/4\", maleta",
+     "f": "Manuais"
+    },
+    {
+     "n": "Jogo de chaves de boca",
+     "s": "8 a 22 mm, cromo-vanádio",
+     "f": "Manuais"
+    },
+    {
+     "n": "Saca-presilhas de forro",
+     "s": "Kit em nylon, não risca o acabamento",
+     "f": "Manuais"
+    },
+    {
+     "n": "Parafusadeira 12 V",
+     "s": "Duas baterias, torque ajustável",
+     "f": "Elétricas"
+    }
+   ]
+  },
+  {
+   "id": "acessorios",
+   "icon": "i-acc",
+   "title": "Acessórios",
+   "sub": "Pequenas coisas que mudam o dia a dia no carro.",
+   "filters": [
+    "Todos",
+    "Iluminação",
+    "Interior",
+    "Energia"
+   ],
+   "items": [
+    {
+     "n": "Lâmpadas",
+     "s": "Farol, milha e iluminação interna",
+     "f": "Iluminação"
+    },
+    {
+     "n": "Tapete sob medida",
+     "s": "Feito pro seu modelo, borracha ou carpete",
+     "f": "Interior"
+    },
+    {
+     "n": "Carregador veicular USB-C",
+     "s": "Carga rápida PD, duas portas",
+     "f": "Energia"
+    }
+   ]
+  }
+ ]
 }
