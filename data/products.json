@@ -14,14 +14,22 @@
    ],
    "items": [
     {
+     "n": "Câmera de ré HD 8 LEDs",
+     "s": "Visão noturna infravermelha, à prova d'água. Nota 5,0",
+     "f": "Segurança",
+     "url": "https://meli.la/17Es3Gu",
+     "price": 28.91,
+     "original_price": 49,
+     "print_price": 28.91,
+     "print_original": 49,
+     "checked_at": "2026-11-18T07:13:00Z",
+     "price_source": "print",
+     "print_event": null
+    },
+    {
      "n": "Central multimídia 9\"",
      "s": "Android Auto e CarPlay sem fio, tela IPS",
      "f": "Multimídia"
-    },
-    {
-     "n": "Câmera de ré HD",
-     "s": "Visão noturna, linhas de guia, à prova d'água",
-     "f": "Segurança"
     },
     {
      "n": "Sensor de estacionamento",
@@ -59,9 +67,22 @@
     "Todas",
     "Rodera",
     "Zunky",
-    "Raw"
+    "Raw",
+    "Réplicas"
    ],
    "items": [
+    {
+     "n": "Lanzonne réplica T-Cross · aro 16",
+     "s": "Jogo com 4 + bicos, 5x100, preto com diamantado",
+     "f": "Réplicas",
+     "url": "https://meli.la/1EhLoDa",
+     "price": 2691.89,
+     "price_note": "ou 10x de R$ 269,19 sem juros",
+     "print_price": 2691.89,
+     "checked_at": "2026-11-18T07:13:00Z",
+     "price_source": "print",
+     "print_event": null
+    },
     {
      "n": "Rodera · aro 17",
      "s": "Jogo com 4, grafite diamantado",
@@ -118,7 +139,11 @@
      "price_note": "no Pix",
      "checked_at": "2026-11-18T06:17:00Z",
      "price_source": "print",
-     "ml_kind": "product"
+     "ml_kind": "product",
+     "print_price": 1467.24,
+     "print_original": 2500,
+     "event": "Black Friday",
+     "print_event": "Black Friday"
     },
     {
      "n": "Pneu premium · aro 15",
@@ -155,9 +180,28 @@
    ],
    "items": [
     {
-     "n": "Shampoo automotivo",
-     "s": "pH neutro, não remove cera",
-     "f": "Lavagem"
+     "n": "Vonixx V-MOL 1,5 L",
+     "s": "Shampoo desincrustante concentrado. Nota 4,9, mais de 50 mil vendidos",
+     "f": "Lavagem",
+     "url": "https://meli.la/2iR9QuK",
+     "price": 40.29,
+     "print_price": 40.29,
+     "checked_at": "2026-11-18T07:13:00Z",
+     "price_source": "print",
+     "print_event": null
+    },
+    {
+     "n": "Vonixx Blend 500 ml + flanela",
+     "s": "Cera spray ceramic e carnaúba. Nota 4,9, mais de 100 mil vendidos",
+     "f": "Proteção",
+     "url": "https://meli.la/2p6ovqi",
+     "price": 45.29,
+     "original_price": 81.7,
+     "print_price": 45.29,
+     "print_original": 81.7,
+     "checked_at": "2026-11-18T07:13:00Z",
+     "price_source": "print",
+     "print_event": null
     },
     {
      "n": "Toalha de microfibra",
@@ -209,6 +253,21 @@
    ],
    "items": [
     {
+     "n": "Parafusadeira de impacto WAP K21",
+     "s": "21 V, bateria 2000 mAh, maleta. Nota 4,8, mais de 100 mil vendidos",
+     "f": "Elétricas",
+     "url": "https://meli.la/2U6QBTt",
+     "price": 160.65,
+     "original_price": 260,
+     "price_note": "no Pix · R$ 189 em outros meios",
+     "print_price": 160.65,
+     "print_original": 260,
+     "checked_at": "2026-11-18T07:13:00Z",
+     "price_source": "print",
+     "event": "Black Friday",
+     "print_event": "Black Friday"
+    },
+    {
      "n": "Macaco jacaré 2 t",
      "s": "Hidráulico, perfil baixo",
      "f": "Elevação"
@@ -232,11 +291,6 @@
      "n": "Saca-presilhas de forro",
      "s": "Kit em nylon, não risca o acabamento",
      "f": "Manuais"
-    },
-    {
-     "n": "Parafusadeira 12 V",
-     "s": "Duas baterias, torque ajustável",
-     "f": "Elétricas"
     }
    ]
   },

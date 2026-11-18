@@ -102,8 +102,12 @@ section.shelf{padding:56px 0;border-top:1px solid var(--line)}
 .card{background:var(--surface);border-radius:var(--r-lg);padding:18px;display:flex;flex-direction:column;gap:14px;min-height:100%}
 .card .art{background:var(--bg);border-radius:var(--r-md);aspect-ratio:4/3;display:grid;place-items:center;color:var(--ink);position:relative}
 .card .art svg{width:38%;height:auto;opacity:.9}
-.tag{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;letter-spacing:.02em;padding:4px 8px;border-radius:6px;background:var(--surface);color:var(--muted)}
+.tags{position:absolute;top:10px;left:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.02em;padding:4px 8px;border-radius:6px;background:var(--surface);color:var(--muted)}
 .tag.hot{background:var(--accent);color:var(--accent-ink)}
+.tag.ev{background:var(--ink);color:var(--bg)}
+.tag.low{background:#1f9d55;color:#fff}
+.deal .save{font-size:13px;font-weight:700;color:#1f9d55}
 .card h3{font-size:18px;font-weight:700;letter-spacing:-0.01em;line-height:1.25}
 .card .spec{font-size:14px;color:var(--muted);margin:4px 0 0}
 .card .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:4px}
@@ -255,11 +259,20 @@ function ago(iso){
 }
 function card(it, icon){
   const fresh = it.price && it.checked_at && (Date.now()-new Date(it.checked_at).getTime()) < FRESH_HOURS*3600e3;
-  const drop = fresh && it.original_price && it.original_price > it.price ? Math.round((1-it.price/it.original_price)*100) : 0;
-  const tag = it.badge ? it.badge : (drop>=10 ? `${drop}% OFF` : "");
+  const best = fresh ? (it.pix_price || it.price) : null;
+  const ref = fresh && it.original_price && it.original_price > best ? it.original_price : null;
+  const pct = ref ? Math.round((1-best/ref)*100) : 0;
+  const chips = [];
+  if(fresh && it.event) chips.push(`<span class="tag ev">${it.event}</span>`);
+  if(pct>=5) chips.push(`<span class="tag hot">${pct}% OFF</span>`);
+  if(fresh && it.lowest_30d) chips.push(`<span class="tag low">Menor preço em 30 dias</span>`);
   let body;
   if(it.url && fresh){
-    body = `<div class="deal">${drop?`<span class="was">${brl(it.original_price)}</span>`:""}<span class="now">${brl(it.price)}</span><span class="pay">${it.price_note||""}</span><span class="seen">Preço atualizado ${ago(it.checked_at)}</span></div>
+    const note = it.pix_price ? `no Pix · ${brl(it.price)} em outros meios` : (it.price_note||"");
+    body = `<div class="deal">${ref?`<span class="was">${brl(ref)}</span>`:""}<span class="now">${brl(best)}</span>
+      ${ref?`<span class="save">Economize ${brl(ref-best)}</span>`:""}
+      <span class="pay">${note}</span>
+      <span class="seen">${it.event?`Oferta ${it.event}. `:""}Preço atualizado ${ago(it.checked_at)}</span></div>
     <div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver oferta no Mercado Livre</a></div>`;
   } else if(it.url){
     body = `<div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver preço no Mercado Livre</a></div>`;
@@ -267,7 +280,7 @@ function card(it, icon){
     body = `<div class="foot"><div class="price">Melhor oferta<b>Em breve</b></div><button class="ghost" type="button" disabled>Ver oferta</button></div>`;
   }
   return `<article class="card" data-f="${it.f}">
-    <div class="art">${tag?`<span class="tag hot">${tag}</span>`:""}<svg aria-hidden="true"><use href="#${icon}"/></svg></div>
+    <div class="art">${chips.length?`<div class="tags">${chips.join("")}</div>`:""}<svg aria-hidden="true"><use href="#${icon}"/></svg></div>
     <div><h3>${it.n}</h3><p class="spec">${it.s}</p></div>
     ${body}
   </article>`;
