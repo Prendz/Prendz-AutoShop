@@ -101,6 +101,8 @@ section.shelf{padding:56px 0;border-top:1px solid var(--line)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .card{background:var(--surface);border-radius:var(--r-lg);padding:18px;display:flex;flex-direction:column;gap:14px;min-height:100%}
 .card .art{background:var(--bg);border-radius:var(--r-md);aspect-ratio:4/3;display:grid;place-items:center;color:var(--ink);position:relative}
+.card .art.photo{background:#f7f7f7;overflow:hidden}
+.card .art img{width:100%;height:100%;object-fit:contain;display:block}
 .card .art svg{width:38%;height:auto;opacity:.9}
 .tags{position:absolute;top:10px;left:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-size:11px;font-weight:700;letter-spacing:.02em;padding:4px 8px;border-radius:6px;background:var(--surface);color:var(--muted)}
@@ -280,7 +282,7 @@ function card(it, icon){
     body = `<div class="foot"><div class="price">Melhor oferta<b>Em breve</b></div><button class="ghost" type="button" disabled>Ver oferta</button></div>`;
   }
   return `<article class="card" data-f="${it.f}">
-    <div class="art">${chips.length?`<div class="tags">${chips.join("")}</div>`:""}<svg aria-hidden="true"><use href="#${icon}"/></svg></div>
+    <div class="art${it.img?" photo":""}">${chips.length?`<div class="tags">${chips.join("")}</div>`:""}${it.img?`<img src="${it.img}" alt="${it.n}" loading="lazy">`:`<svg aria-hidden="true"><use href="#${icon}"/></svg>`}</div>
     <div><h3>${it.n}</h3><p class="spec">${it.s}</p></div>
     ${body}
   </article>`;

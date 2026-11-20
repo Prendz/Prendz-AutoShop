@@ -26,7 +26,8 @@
      "price_source": "print",
      "print_event": null,
      "ml_id": "MLB7952636038",
-     "ml_kind": "item"
+     "ml_kind": "item",
+     "img": "assets/img/camera-re.jpg"
     },
     {
      "n": "Central multimídia 9\"",
@@ -85,7 +86,8 @@
      "price_source": "print",
      "print_event": null,
      "ml_id": "MLB6195062462",
-     "ml_kind": "item"
+     "ml_kind": "item",
+     "img": "assets/img/rodas-lanzonne.jpg"
     },
     {
      "n": "Rodera · aro 17",
@@ -147,7 +149,8 @@
      "print_price": 1467.24,
      "print_original": 2500,
      "event": "Black Friday",
-     "print_event": "Black Friday"
+     "print_event": "Black Friday",
+     "img": "assets/img/pirelli.jpg"
     },
     {
      "n": "Pneu premium · aro 15",
@@ -194,7 +197,8 @@
      "price_source": "print",
      "print_event": null,
      "ml_id": "MLB4960561285",
-     "ml_kind": "item"
+     "ml_kind": "item",
+     "img": "assets/img/vmol.jpg"
     },
     {
      "n": "Vonixx Blend 500 ml + flanela",
@@ -209,7 +213,8 @@
      "price_source": "print",
      "print_event": null,
      "ml_id": "MLB7039318746",
-     "ml_kind": "item"
+     "ml_kind": "item",
+     "img": "assets/img/vonixx-blend.jpg"
     },
     {
      "n": "Toalha de microfibra",
@@ -275,7 +280,8 @@
      "event": "Black Friday",
      "print_event": "Black Friday",
      "ml_id": "MLB4514233797",
-     "ml_kind": "item"
+     "ml_kind": "item",
+     "img": "assets/img/wap-k21.jpg"
     },
     {
      "n": "Macaco jacaré 2 t",
