@@ -239,7 +239,7 @@ footer b{color:var(--ink)}
 <footer>
   <div class="wrap">
     <div><b>Prendz Auto Shop</b> · versão de pré-lançamento. Os preços são atualizados automaticamente e podem mudar a qualquer momento no Mercado Livre.</div>
-    <div>A Prendz é um site de curadoria. As compras são feitas no Mercado Livre, direto com o vendedor, e a Prendz pode receber comissão pelas indicações, sem custo extra pra você.</div>
+    <div>A Prendz é um site de curadoria. As compras são feitas no Mercado Livre e na Shopee, direto com o vendedor, e a Prendz pode receber comissão pelas indicações, sem custo extra pra você.</div>
   </div>
 </footer>
 
@@ -275,9 +275,9 @@ function card(it, icon){
       ${ref?`<span class="save">Economize ${brl(ref-best)}</span>`:""}
       <span class="pay">${note}</span>
       <span class="seen">${it.event?`Oferta ${it.event}. `:""}Preço atualizado ${ago(it.checked_at)}</span></div>
-    <div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver oferta no Mercado Livre</a></div>`;
+    <div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver oferta ${it.store==="Shopee"?"na Shopee":"no Mercado Livre"}</a></div>`;
   } else if(it.url){
-    body = `<div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver preço no Mercado Livre</a></div>`;
+    body = `<div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver preço ${it.store==="Shopee"?"na Shopee":"no Mercado Livre"}</a></div>`;
   } else {
     body = `<div class="foot"><div class="price">Melhor oferta<b>Em breve</b></div><button class="ghost" type="button" disabled>Ver oferta</button></div>`;
   }
