@@ -119,6 +119,9 @@ section.shelf{padding:56px 0;border-top:1px solid var(--line)}
 .deal .was{font-size:13px;color:var(--muted);text-decoration:line-through}
 .deal .now{font-size:24px;font-weight:800;letter-spacing:-0.02em}
 .deal .pay{font-size:13px;color:var(--muted)}
+.deal .lbl{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.deal .range{font-size:22px;font-weight:800;letter-spacing:-0.02em}
+.deal .range i{font-style:normal;font-weight:500;color:var(--muted);font-size:16px}
 .deal .seen{font-size:12px;color:var(--muted);margin-top:4px}
 .btn.buy{display:block;width:100%;text-align:center;font-size:15px}
 .ghost{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--muted);cursor:not-allowed;white-space:nowrap}
@@ -259,6 +262,13 @@ function ago(iso){
   const h = Math.round(m/60); if(h<48) return `há ${h} h`;
   return `há ${Math.round(h/24)} dias`;
 }
+const RANGE_DAYS = 30;
+const brl0 = v => v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+function rangeOk(it){
+  if(!it.seen || !it.seen.length || !it.ref_high) return false;
+  const last = Math.max(...it.seen.map(x=>new Date(x.t).getTime()));
+  return (Date.now()-last) < RANGE_DAYS*864e5;
+}
 function card(it, icon){
   const fresh = it.price && it.checked_at && (Date.now()-new Date(it.checked_at).getTime()) < FRESH_HOURS*3600e3;
   const best = fresh ? (it.pix_price || it.price) : null;
@@ -276,6 +286,12 @@ function card(it, icon){
       <span class="pay">${note}</span>
       <span class="seen">${it.event?`Oferta ${it.event}. `:""}Preço atualizado ${ago(it.checked_at)}</span></div>
     <div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver oferta ${it.store==="Shopee"?"na Shopee":"no Mercado Livre"}</a></div>`;
+  } else if(it.url && rangeOk(it)){
+    const lo = Math.floor(Math.min(...it.seen.map(x=>x.p))), hi = it.ref_high;
+    const last = new Date(Math.max(...it.seen.map(x=>new Date(x.t).getTime())));
+    body = `<div class="deal"><span class="lbl">Faixa de preço</span><span class="range">${brl0(lo)} <i>a</i> ${brl0(hi)}</span>
+      <span class="seen">Referência de ${last.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit"})}. O preço muda com as promoções: confira o valor de hoje na loja.</span></div>
+    <div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver preço de hoje ${it.store==="Shopee"?"na Shopee":"no Mercado Livre"}</a></div>`;
   } else if(it.url){
     body = `<div class="foot"><a class="btn buy" href="${it.url}" target="_blank" rel="nofollow sponsored noopener">Ver preço ${it.store==="Shopee"?"na Shopee":"no Mercado Livre"}</a></div>`;
   } else {

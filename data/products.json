@@ -27,7 +27,14 @@
      "print_event": null,
      "ml_id": "MLB7952636038",
      "ml_kind": "item",
-     "img": "assets/img/camera-re.jpg"
+     "img": "assets/img/camera-re.jpg",
+     "seen": [
+      {
+       "t": "2026-11-18T07:13:00Z",
+       "p": 28.91
+      }
+     ],
+     "ref_high": 49
     },
     {
      "n": "Central multimídia 9\"",
@@ -87,7 +94,14 @@
      "print_event": null,
      "ml_id": "MLB6195062462",
      "ml_kind": "item",
-     "img": "assets/img/rodas-lanzonne.jpg"
+     "img": "assets/img/rodas-lanzonne.jpg",
+     "seen": [
+      {
+       "t": "2026-11-18T07:13:00Z",
+       "p": 2691.89
+      }
+     ],
+     "ref_high": 3096
     },
     {
      "n": "Rodera · aro 17",
@@ -150,7 +164,14 @@
      "print_original": 2500,
      "event": "Black Friday",
      "print_event": "Black Friday",
-     "img": "assets/img/pirelli.jpg"
+     "img": "assets/img/pirelli.jpg",
+     "seen": [
+      {
+       "t": "2026-11-18T06:17:00Z",
+       "p": 1467.24
+      }
+     ],
+     "ref_high": 2500
     },
     {
      "n": "Pneu premium · aro 15",
@@ -206,7 +227,14 @@
      "print_event": null,
      "ml_id": "MLB4960561285",
      "ml_kind": "item",
-     "img": "assets/img/vmol.jpg"
+     "img": "assets/img/vmol.jpg",
+     "seen": [
+      {
+       "t": "2026-11-18T07:13:00Z",
+       "p": 40.29
+      }
+     ],
+     "ref_high": 47
     },
     {
      "n": "Vonixx Blend 500 ml + flanela",
@@ -222,7 +250,14 @@
      "print_event": null,
      "ml_id": "MLB7039318746",
      "ml_kind": "item",
-     "img": "assets/img/vonixx-blend.jpg"
+     "img": "assets/img/vonixx-blend.jpg",
+     "seen": [
+      {
+       "t": "2026-11-18T07:13:00Z",
+       "p": 45.29
+      }
+     ],
+     "ref_high": 82
     },
     {
      "n": "Toalha de microfibra",
@@ -284,7 +319,14 @@
      "print_event": "Black Friday",
      "ml_id": "MLB4514233797",
      "ml_kind": "item",
-     "img": "assets/img/wap-k21.jpg"
+     "img": "assets/img/wap-k21.jpg",
+     "seen": [
+      {
+       "t": "2026-11-18T07:13:00Z",
+       "p": 160.65
+      }
+     ],
+     "ref_high": 260
     },
     {
      "n": "Macaco jacaré 2 t",
